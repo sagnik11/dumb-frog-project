@@ -23,7 +23,7 @@ export const questions: Question[] = [
   },
   {
     id: 5,
-    text: 'What's your preferred writing style?',
+    text: 'Whats your preferred writing style?',
     options: ['Poetic and descriptive', 'Direct and fast-paced', 'Philosophical and thought-provoking', 'Humorous and witty', 'Atmospheric and immersive']
   }
 ];

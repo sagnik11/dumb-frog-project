@@ -75,13 +75,13 @@ export function Quiz() {
   }, [isQuizComplete, responses]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-white dark:from-gray-900 dark:to-gray-800 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-pink-50 to-white dark:from-pink-950 dark:via-pink-900 dark:to-gray-900 py-12 px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="max-w-3xl mx-auto">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-400 mb-2">
+          <h1 className="text-3xl font-bold text-pink-600 dark:text-pink-300 mb-2">
             Find the Right Book for Every Mood
           </h1>
-          <p className="text-gray-600 dark:text-gray-300">
+          <p className="text-pink-700 dark:text-pink-400">
             Answer a few questions and we'll suggest the perfect books for you.
           </p>
         </div>
@@ -89,11 +89,11 @@ export function Quiz() {
         {!isQuizComplete ? (
           <div className="space-y-6">
             <div className="mb-8">
-              <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">
+              <div className="flex justify-between text-sm font-medium text-pink-600 dark:text-pink-400 mb-2">
                 <span>Question {currentQuestionIndex + 1} of {questions.length}</span>
                 <span>{progress}%</span>
               </div>
-              <Progress value={progress} className="h-2 bg-pink-100 dark:bg-pink-950" />
+              <Progress value={progress} className="h-2 bg-pink-100 dark:bg-pink-900" />
             </div>
 
             <AnimatePresence mode="wait">
@@ -115,7 +115,7 @@ export function Quiz() {
                   animate={{ rotate: 360 }}
                   transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                 />
-                <p className="mt-4 text-gray-600 dark:text-gray-300">Analyzing your preferences...</p>
+                <p className="mt-4 text-pink-600 dark:text-pink-400">Analyzing your preferences...</p>
               </div>
             ) : (
               <>
@@ -124,13 +124,13 @@ export function Quiz() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-pink-200 dark:border-pink-900"
+                    className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border border-pink-200 dark:border-pink-800"
                   >
-                    <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-4">Your Reading Profile</h2>
+                    <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-300 mb-4">Your Reading Profile</h2>
                     <div className="space-y-3">
-                      <p className="text-gray-700 dark:text-gray-300"><span className="font-medium">Current Mood:</span> {behaviorAnalysis.mood}</p>
-                      <p className="text-gray-700 dark:text-gray-300"><span className="font-medium">Reading Preference:</span> {behaviorAnalysis.readingPreference}</p>
-                      <p className="text-gray-700 dark:text-gray-300"><span className="font-medium">Insight:</span> {behaviorAnalysis.personalityInsight}</p>
+                      <p className="text-pink-700 dark:text-pink-300"><span className="font-medium">Current Mood:</span> {behaviorAnalysis.mood}</p>
+                      <p className="text-pink-700 dark:text-pink-300"><span className="font-medium">Reading Preference:</span> {behaviorAnalysis.readingPreference}</p>
+                      <p className="text-pink-700 dark:text-pink-300"><span className="font-medium">Insight:</span> {behaviorAnalysis.personalityInsight}</p>
                     </div>
                   </motion.div>
                 )}
@@ -141,12 +141,12 @@ export function Quiz() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-400 mb-6">Your Book Recommendations</h2>
+                    <h2 className="text-2xl font-bold text-pink-600 dark:text-pink-300 mb-6">Your Book Recommendations</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {bookRecommendations.map((book, index) => (
                         <motion.div
                           key={index}
-                          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-pink-200 dark:border-pink-900 h-full flex flex-col"
+                          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-pink-200 dark:border-pink-800 h-full flex flex-col"
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}

@@ -34,9 +34,9 @@ export function QuizCard({ question, onAnswer, onComplete, isActive }: QuizCardP
       exit={{ opacity: 0, x: -100 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden border border-pink-200 dark:border-pink-900">
+      <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden border border-pink-200 dark:border-pink-800">
         <div className="p-6">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          <h3 className="text-xl font-semibold text-pink-700 dark:text-pink-300 mb-4">
             {question.text}
           </h3>
           <div className="space-y-3">
@@ -45,7 +45,7 @@ export function QuizCard({ question, onAnswer, onComplete, isActive }: QuizCardP
                 key={index}
                 className={`w-full text-left p-3 rounded-lg transition-colors ${selectedOption === option
                   ? 'bg-pink-500 text-white'
-                  : 'bg-pink-50 dark:bg-pink-950 hover:bg-pink-100 dark:hover:bg-pink-900 text-gray-700 dark:text-gray-200'
+                  : 'bg-pink-50/80 dark:bg-pink-950/80 hover:bg-pink-100 dark:hover:bg-pink-900 text-pink-800 dark:text-pink-200'
                   }`}
                 onClick={() => handleOptionSelect(option)}
                 whileHover={{ scale: 1.02 }}
